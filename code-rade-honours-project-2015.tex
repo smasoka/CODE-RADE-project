@@ -73,10 +73,10 @@ Research proposal }
 \vfill
 
 \begin{itemize}
-\item Principal investigator (PI): Bruce Becker (CSIR Meraka Institute)
+\item Principal investigator (PI): Bruce Becker (CSIR Meraka Institute) - Senior Researcher, SANREN Competency Area; Coordinator, South African National Grid; Coordinator, Africa-Arabia Regional Operations Centre
 \item Host institution: Wits University
 \item Full title: Continuous Delivery of Research Applications in Distributed Environment
-\item Proposal short name: CODE-RADE
+\item Proposal short name: \bf{CODE-RADE}
 \item Proposal duration: 10 months
 \end{itemize}
 
@@ -101,24 +101,31 @@ The specific problems we aim to address in this limited-scope project are those 
 
 \section{Methodology}
 
-The project has a solid base from which to start and the basic design and implementation has been presented at a few conferences already. The Jenkins instance has been operational for over a year already hosted by the University of the Free State at https://ci.sagrid.ac.za. 
+The project will work on a case-study basis, with applications of different architectures selected. Massively-parallel applications (such as GADGET), self-contained applications (user-provided code), applications with complex dependency trees (such as Quantum Espresso), and applications based on common frameworks (python or R applications).
 
-\section{Resources and Support}
+These will be studied in terms of their requirements and execution models and the candidate will be expected to write the configuration of Jenkins jobs necessary to successfully build them. Appropriate methods of artifact creation should be studied and suggested, and then implemented. For example the candidate should investigate doing this with Linux containers.
 
-The project can count on the full support of SAGrid, and will have the resources of the Africa-Arabia Regional Operations Centre at its disposal. Where necessary, coordination with experts from peer infrastructures (in particular EGI.eu) will be brought to bear.
+Finally, the candidate should provide the (bash) module file necessary to execute the application on any site which subscribes to the CVMFS repositories.
 
 \section{Expected Results}
 
+It is expected that these case studies will lead to insights necessary to provide best-practice guildelines to future development and operation of the service, especially related to optimisation and automation procedures.
+
+\section{Resources and Support}
+
+The project has a solid base from which to start and the basic design and implementation has been presented at a few conferences already. The Jenkins instance has been operational for over a year already hosted by the University of the Free State at https://ci.sagrid.ac.za.
+
+The project can count on the full support of SAGrid, and will have the resources of the Africa-Arabia Regional Operations Centre at its disposal. Where necessary, coordination with experts from peer infrastructures (in particular EGI.eu) will be brought to bear.
 
 
 \section{References}
 
-NICIS - The NICIS is a framework for the development of an integrated system for cyberinfrastrucutre in South Africa, including pillars of data, compute and network infrastructure.
-
-Jenkins - Jenkins is a continuous integration platform widely used to automate testing and integration of applications.
-
-
-
+\begin{description}
+  \item[NICIS] - The NICIS is a framework for the development of an integrated system for cyberinfrastrucutre in South Africa, including pillars of data, compute and network infrastructure. See http://www.dst.gov.za/index.php/resource-center/cyber-infrastructure2
+  \item[Jenkins] - Jenkins is a continuous integration platform widely used to automate testing and integration of applications. See http://jenkins-ci.org
+  \item[EGI.eu] - EGI.eu is a coordinating body for Europe's largest federated computing infrastructure. See http://www.egi.eu
+  \item[Africa-Arabia Regional Operations Centre (AAROC)] - AAROC is the regional body for African e-Infrastructure, coordinated by the CSIR Meraka Institute, and providing a platform for infrastructure interoperability between Africa and other regions, most notably Europe.
+\end{description}
 
 %%% Bibliography
 \begin{small}

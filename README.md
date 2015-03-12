@@ -1,4 +1,4 @@
-# CORE-RADE Honours project
+# CODE-RADE Honours project
 
 This is an **honours** project description submitted to the University of the Witwatersrand. The project proposal is written in LaTex, from an ERC starting grant template, because overkill is a thing.
 

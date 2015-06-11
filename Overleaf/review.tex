@@ -1,0 +1,83 @@
+%% Author: Sakhile Masoka (851667@students.wits.ac.za)
+%% Homepage: https://github.com/smasoka/CODE-RADE-project/tree/sakhile-project
+%% Reference: 
+
+\documentclass [titlepage,11pt]{article}
+
+\usepackage{witsa4}
+\usepackage{times}
+
+\usepackage{url}
+\usepackage{natbib}
+
+\usepackage[center]{titlesec}
+
+\input{natbib-add}
+\bibliographystyle{named-wits}
+\bibpunct{[}{]}{;}{a}{}{}
+
+
+\title{\Huge Continuous Delivery of Research Application in a Distributed Environment \\\medskip CODE-RADE}
+\author{Sakhile Masoka (851667@students.wits.ac.za)\\Witwatersrand University}
+
+\begin{document}
+\maketitle
+
+\tableofcontents{}
+
+
+\begin{abstract}
+One of the aims of e-Infrastructure is to provide easy access to powerful computational and data platforms, to as many eligible users as possible. While user access is being simplified and made easy, the community of application developers and technical support in scientific collaborations does not yet have an easy way to integrate and manage applications. This gap has been identified and solutions to integrate applications into infrastructure in a fast, flexible, distributed and reproducible way have been developed by a few. This review presents some of the Continuous Integration principles and developed software tools based on CI, to help fill the gap.
+\end{abstract}
+
+
+\section{Introduction}
+
+% Backgroud definition
+The South African National Grid (SAGrid) as part of the National Integrated Cyber-infrastructure System aims to provide access to powerful computational and data platforms, to as many eligible users as possible. While user access is being simplified greatly by the adoption of science gateways and identity federations, the community of application developers and technical support in scientific collaborations does not yet have an easy way to integrate these applications in the first place. SAGrid has identified this as a gap in the services it provides. \\
+
+Using existing tools and services, there are simple set of tests which applications need to pass in order to be considered valid for the infrastructure. These can been encoded as automated tests using a Continuous Integration (CI) platform such as Jenkins. Interoperability between source code repositories, automated build systems, artifact creation and content delivery systems is crucial for the sustainability and uptake of the system. This is the aim of this literature review. Below is the description of Continuous integration. \\
+
+% Describes CI
+\citep{fowler06} describes Continuous Integration (CI) {\it a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.} Mathias Meyer presented the basics of Continuous Integration, here summarized in a listed format, (1) All code is kept in a repository (2) Revised code is submitted daily to the repository (2) The automated system checks the code, runs tests and verifies that the code is good, it doesn't break anything \citep{meyer14}. \\
+
+Finding literature for this review was difficult. There are publication for design principles, but not enough on the actual technology. The open source community tends to blog and upload slides instead of publishing papers. The rest of this paper is structured as follows, Section 2 reviews a set of principals that makes up Continuous Integration. Section 3 reviews the software tools used for a CI system followed by a conclusion. 
+\clearpage
+
+\section{Continuous Integration Review}
+\subsection{Single Source Repository}
+Maintaining a single source repository is key for CI principles to work, especially when there are multiple people involved. \citep{joachim11} states that repositories allow for a distributed and asynchronous development and these repositories should not only house artifacts, but also includes less formal parts relevant for the development process, such as organizational documents, sheets etc. To reduce cost, Fowler suggests Subversion, an open source version control system \citep{subversion00}, while Meyer suggests a range of tools from self-hosted systems such as Jenkins, Teamcity and Bamboo to hosted products like CloudBees and Travis CI (an open-source hosted, distributed continuous integration service used to build and test projects hosted at GitHub). \\
+
+Research done by \citep{dabbish12} found that four key features of visible feedback drove a rich set of inferences around commitment, work quality, community significance and personal relevance. These inferences supported collaboration, learning, and reputation management in the community. Their results informs the design of social media for large-scale collaboration, and imply a variety of ways that transparency can support innovation, knowledge sharing, and community building.
+
+\subsection{Automate the Software build}
+Getting the sources turned into a running system can often be a complicated process involving compilation, moving files around, loading schemas into the databases etc, however like most tasks in CI software development, this task can be automated \citep{fowler06}. A software {\it build} is an executable artifact of the knowledge base, that is ready for deployment into a productive setting \citep{joachim11}. The artifact should be complete on its own, being transferred to production with all its dependencies, meaning the artifact should be platform independent or according to Fowler, the build should allow for alternative targets for different cases.
+
+\subsection{Automate Software Testing and Deployment}
+Testings should be automated on all software levels, individual components, integration, and on system level. A test is {\it automated}, if the expected and correct result of the test is known a priori and it can be applied without manual interaction. After its execution the computed results are compared with expected results automatically \citep{joachim11}. The results should indicate if any of the tests failed, and if so, the whole test should cause the build to fail. The whole test suit should not require human interaction. \\
+
+To ensure continuous integration, automating deployment becomes an important issue as well. Either deploying on test or production environment, automation speeds up the process and reduces errors \citep{fowler06}. Fowler also suggests building automated rollbacks when implementing automated deployment as test suites are not perfect and fast rollbacks reduces a lot of the tension of deployment, encouraging people to deploy more frequently and thus get new features out to users quickly.
+\clearpage
+
+\section{Continuous Integration Tools Review}
+\subsection{CernVM-FS Repository}
+CERN created cernVM, a lightweight Virtual Software Appliance intended to run on any operating system providing consistent and effortless installation of High Energy Physics experiment software to allow physicists working on these experiment to effectively use their desktops, laptop and Grid interfaces. The appliance runs a file system optimized for software distribution, CernVM-FS (CMVFS). \citep{bunic10}. CernVM File System (CernVM-FS) is a read-only file system widely used to access High Energy Physics experiment software and conditions data. Files and directories are hosted on cernVM server instances and mounted in the universal namespace \textbf{/cvmfs}. Grid sites compute nodes are able to mount the global namespace, providing the software needed to run experiments jobs locally without installing suite of software \citep{blomer12}.\\
+
+CERN softwares is used in over 140 Grid computing sites all over the world, size ranging from a couple of cores to thousands, and the experiment software needs to be running each compute node in order to fully utilize all available cores. Deployment and maintaining this software proved to be difficult. CernVM-FS solved this problem by allowing softwares to be installed centrally but when mounted on compute nodes behaves as a local file system \citep{jakob11}.  
+
+\subsection{Container - Docker}
+Docker is an open source platform for developers and systems administrators that automates deployment of applications inside containers called {\it Docker images}. The core technologies behind Docker are Namespaces, Control group (Cgroup) and union File System (UFS) \citep{lui14}. With all these technologies combined, Docker is able create isolated workspace where application live independently, but still share the kernel with other spaces. This makes Docker more portable and efficient compared to Virtual machines. \\
+
+Docker's features enables reproducible research by solving issues scientist face when reproducing another's research. Docker is able to solve ``Dependency Hell'', Imprecise documentation, Code rot and Barriers to adoption and reuse in existing solutions \citep{carl15}. Solving application dependencies is one of the main principles of Continuous Integration as applications need to be self-contained when deployed to different platforms.
+
+
+\subsection{Jenkins}
+Wikipedia describes Jenkins as an open source continuous integration tool for software development \citep{wiki11}. From the official website, Jenkins is described as application that monitors executions of repeated jobs, such as building a software project or jobs run by cron \citep{jenkins15}. The focus of Jenkins is (1) Building/testing software projects continuously (2) Monitoring executions of externally-run jobs. These two focus points are principles of continuous integration. 
+\clearpage
+
+\section{Conclusion}
+Continuous Integration principals were presented, namely (1) single source repository for code (2) automation of software build (3) automation of testing and deployment. This led to the software tools currently available to enforce these principles in software development. These tools will be used in linking the gap identified by SAGrid and fully be able to provide easy access to as many eligible users as possible to powerful computational and data platforms. 
+
+\bibliography{annot2}
+
+\end{document}

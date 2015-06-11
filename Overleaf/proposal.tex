@@ -1,0 +1,194 @@
+%% Author: Sakhile Masoka (851667@students.wits.ac.za)
+%% Homepage: https://github.com/smasoka/CODE-RADE-project/tree/sakhile-project
+%% Reference: 
+
+\documentclass [titlepage,11pt]{article}
+
+\usepackage{witsa4}
+\usepackage{times}
+
+\usepackage{url}
+\usepackage{natbib}
+
+\usepackage[center]{titlesec}
+
+\input{natbib-add}
+\bibliographystyle{named-wits}
+\bibpunct{[}{]}{;}{a}{}{}
+
+
+\title{\Huge Continuous Delivery of Research Application in a Distributed Environment \\\medskip Research Proposal}
+\author{Sakhile Masoka (851667@students.wits.ac.za)\\Witwatersrand University}
+
+\begin{document}
+\maketitle
+
+
+
+% Provides Context
+% Idea Of Own Contribution
+% What Will Be Done
+% How It Will Be Done
+% Can Be Read Independently
+% Measures (metrics) Used and Results Very Good
+\begin{abstract}
+One of the aims of e-Infrastructures is to provide easy access to powerful computational and data platforms, to as many eligible users as possible. The South African National Grid (SAGrid), as part of the National Integrated Cyberinfrastructure System is no exception. While access to the users is being simplified greatly by the adoption of science gateways and identity federations, the community of application developers and technical support in scientific collaborations does not yet have an easy way to integrate these applications in the first place.\\
+
+SAGrid has identified this as a gap in the services it provides and has developed a solution to
+the issue of easily integrating new applications into the infrastructure in a fast, flexible, distributed and reproducible way. Using existing tools and services, SAGrid has defined a simple set of tests which applications need to pass in order to be considered valid for the infrastructure.\\  
+
+The proposal is to use a continuous integration platform, Jenkins, to encode these tests automatically. Critical to the process is the Inter-operability between source code repository, automated build system, artifact creation and a content delivery system to sustain the system. These will be tested using scientific applications, namely GADGET, Quantum Espresso and python based application framework such as R. The tests will be executed in bash scripts to applications that subscribes to CVMFS repositories.
+
+\end{abstract}
+
+
+\tableofcontents{}
+
+
+% Introduces General Problem Area
+% Introduces Specific Problem Area
+% Research To Be Followed
+% Provides Idea About Expected Results
+% Provides Idea Of Research Contribution
+% Correct Level Of Detail? 
+% Provides Structure to Rest Of Document
+
+% One of the aims of e-Infrastructures is to provide easy access to powerful computational and data
+% platforms, to as many eligible users as possible. The South African National Grid (SAGrid), as part
+% of the National Integrated Cyberinfrastructure System is no exception. While access to the users is
+% being simplified greatly by the adoption of science gateways and identity federations, the community
+% of application developers and technical support in scientific collaborations does not yet have an easy
+% way to integrate these applications in the first place.
+\section{Introduction}
+
+e-Science  is computationally intensive science that is carried out in highly distributed network environments, or science that uses immense data sets that require grid computing, the term sometimes includes technologies that enables distributed collaboration, such as the Access Grid. \citep{escience}. This leads to working definition of e-Infrastructures as networked tools, data and resources that support a community of researchers, broadly including all those who participate in and benefit from research. e-Infrastructures include services as diverse as the physical supply of backbone connectivity,single- or multi-purpose grids, supercomputer infrastructure, data grids and repositories, tools for visualization, simulation, data management, storage, analysis and collection, tools for
+support in relation to methods or analysis, as well as remote access to research instruments and very large research facilities, according to the eResearch2020 Final Report \citep{eresearch}.\\ 
+
+The National Integrated Cyberinfrastructure System (NICIS) is a framework of an integrated system for cyberinfrastructure in South Africa, which includes pillars of data, computations and network infrastructure. South African Grid (SAGrid) is part of the South African National Research Network (SANReN), which in-turn is one of the network pillars on NICIS. SAGrid carries the mandate to enable anyone, with the right credentials to access the Cyberinfrastructure (data,compute,software,metadata, support, etc services) and to provide tools for collaboration and research \citep{nicis}. \\
+
+% The General/Specific Problem and Solution
+In this mandate, access to the users is being simplified greatly by the adoption of science gateways and identity federations, but the community of application developers and technical support in scientific collaborations does not yet have an easy way to integrate these applications. SAGrid has defined tests which applications need to pass in order to be considered valid for the infrastructure and using existing tools and services, these tests can be automated using continuous integration platforms. This research proposal aims to look at the methodologies and the platforms tools to encode these test as automated. The results will lead to insights necessary to provide best-practice guidelines to future development and operation of the service, especially related to optimisation and automation procedures.\\
+
+% Structure of the paper
+The paper is structured as follows:Section 2 describes the problem statement, motivation and literature review. Section 3 looks into the research aim, discussing the research aims to answer. Section 4 describes the research methodology, the software's and actual work to be done. Section 5 discusses the results and lastly section 6 is the conclusion. \\
+
+% Provides Detail On Specific Problem Area
+% Level Of Engagement With Research Literature
+% Level Of Understanding Of Problem Background
+% Contains Adequate And Relevant References 
+% Contains Relevant Ideas, Concepts, etc., From References
+% Relates Background Material And Related Work To Research Question
+% Research Aim/Question Justified In Terms Of Past Research
+
+% SAGrid has identified this as a gap in the services it provides and has developed a solution to
+% the issue of easily integrating new applications into the infrastructure 
+% in a fast, flexible, distributed and reproducible way.
+\section{Background}
+
+% Detail description of the problem statement
+\subsection{Problem Statement and Motivation}
+
+% Explain how the applications are installed? 
+Detailed Problem background and area. \\
+What is the actually Gap that is identified? \\
+Motivation for the solution? How does this solution leads back to achieving the aim of SAGrid, e-Infrastructure? \\
+Motivation: Integration, Fast, Flexible and reproducible (DevOps). \\
+Introduce the Methods, Applications etc to solve this problem. \\
+
+% Literature Review on CODE-RADE
+\subsection{Literature Review: }
+Review on the approach \\
+Review of the application software's to be used in the solution \\
+Adapt the literature review to the proposal. \\
+
+% Has Presented Research Hypothesis/Focused Research Question
+% Has Clearly Stated Hypothesis/Research Question
+% Hypothesis Can Be Tested And Research Question Can Be Answered
+
+% The specific problems we aim to address in this limited-scope project are those of automation and
+% distribution. Specifically How far is it feasible to automate the build steps in order to produce high-quality, 
+% re-distributable artifacts ?
+% How are dependencies of applications to be managed in various configurations ?
+% How can Linux containers be used to distributed these artifacts to remote sites with the minimum
+% intervention necessary by site administrators
+\section{Research Aim}
+Questions to answer? \\
+% A mention of Jenkins and Docker
+1. How far is it feasible to automate the build steps in order to produce high-quality, re-distributable artifacts? \\
+2. How are dependencies of applications to be managed in various configurations ? \\
+3. How can Linux containers be used to distributed these artifacts to remote sites with the minimum intervention necessary by site administrators? \\
+4. How is all this going to be tested and answered? 
+
+% It Is presented
+% It Appears To Be A Reasonable Approach
+% It Will Lead To Verification Or Refutation Of Research Hypothesis
+% It Will Lead To Answering Of The Research Question Adequate 
+% Student Has Identified Data To Be Collected/Measurements To Be Made
+% Student Has Motivated Why Data Or Measurements Have Been Selected
+% Overall, The Research Method Seems To Be Reasonable
+% Overall, The Research Method Seems To Be Feasible
+\section{Research Methodology}
+
+% i am expected to write the configuration of Jenkins jobs necessary to successfully build them. 
+% Appropriate methods of artifact creation should be studied and suggested, 
+% and then implemented. For example the candidate should investigate doing this with Linux containers.
+% Finally, the candidate should provide the (bash) module file necessary to execute the application
+% on any site which subscribes to the CVMFS repositories.
+\subsection{Methodology and Development: Development Operations}
+1. Development Operations? \\
+2. Why is this the best method to follow to achieve Continuous Delivery? \\
+3. The method leads us to the tools we propose to use for the project.\\
+
+% Jenkins
+% Containers - Docker
+% CVMFS
+\subsection{Software Platforms}
+1. What are these software's? how do they work? \\
+2. How do they help the methodology proposed? \\
+
+% Massively-parallel applications (such as GADGET), 
+% self-contained applications (user-provided code),
+% applications with complex dependency trees (such as Quantum Espresso), 
+% and applications based on
+% common frameworks (python or R applications).
+\subsection{Software Applications}
+1. What are these scientific software's?\\
+2. Why chose them? \\
+
+\subsection{Work Detail}
+1. Installations - Software platforms and software applications. (Where and how) \\
+2. Configurations  - How will all be configured? \\
+3. Testings - How will the tests be conducted? \\
+
+% Presented Clearly And Well Organized
+% Enough Collected To Test Hypothesis Or Answer Questions
+% Student Understands Results (Discussion)
+% Student Has Related Results To Research Hypothesis/Question
+% Student Has Discussed Limitation(s) Of Own Research
+% Student Has Placed Own Work Into Context With Other Research
+% Student Has Discussed Own Level Of Contribution
+
+% It is expected that these case studies will lead to insights necessary 
+% to provide best-practice guidelines to future development and operation of the service, 
+% especially related to optimisation and automation procedures.
+
+% A practical working system is also expected.
+\section{Results}
+Expected Results \\
+Link the expected results to the Research AIM (The questions)
+
+% It Provides A Summary Of The Major Points Of The Proposal
+% It Does Summarize The Document
+% It Brings Together The Main Points
+% It Highlights Most Important Results
+% It Makes Clear Student’s Own Contribution
+% Some Ideas For Future Work Presented
+% Some Discussion Of Other Ways Of Addressing The Same Problem
+\section{Conclusion}
+Summary of the proposal \\
+Highlight important points  - Bring it all together\\
+What will not be covered and Future work \\
+
+\bibliography{annot2}
+
+\end{document}
